@@ -116,7 +116,7 @@ class MyAppbar extends StatelessWidget {
     return Padding(
       
       padding: EdgeInsets.symmetric(horizontal: 8.0
-      
+
       ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -127,6 +127,14 @@ color: hijau,
 ),
 Column(
   mainAxisAlignment: MainAxisAlignment.end,
+  children: [
+    Text(
+      "Location",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10.0,),
+    ),
+    Text(
+      "Sumatera Selatan",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 10.0),
+    ),
+  ],
 ),
     ]),
     );
@@ -137,15 +145,120 @@ class foodlistview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Padding(padding: EdgeInsets.only(left: 8.0),
+    child: Container(
+    
+      height: 160.0,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          carditem(),
+          carditem(),
+          carditem(),
+          carditem(),
+          carditem(),
+          carditem(),
+          carditem(),
+          carditem(),
+          carditem(),
+
+
+      ]),
+    ),
+    );
   }
 }
+
+class carditem extends StatelessWidget {
+  const carditem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(right: 8.0),
+      child: Container(
+        height:160,
+        width: 300,
+        decoration: BoxDecoration(
+          image: DecorationImage(image: NetworkImage(gambar),fit: BoxFit.cover),
+        ),
+        child: Stack(
+          children: [
+            Container(
+              height: 160,
+              width: 300,
+              decoration: BoxDecoration(gradient: LinearGradient(
+              colors:[ Colors.black.withOpacity(0.1),Colors.black],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              ),
+              ),
+            ),
+            Padding(padding: EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Spacer(),
+                Text("30% off",style: TextStyle(
+                  fontSize: 24.0,fontWeight: FontWeight.bold,color: Colors.white,letterSpacing: 1.1
+                  ),),
+                  Text("Kucing Persia",style: TextStyle(
+                  fontSize: 16.0,fontWeight: FontWeight.bold,color: Colors.white,letterSpacing: 1.1
+                  ),),
+              ],
+            ),
+  
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class selectypesection extends StatelessWidget {
   const selectypesection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Padding(padding:EdgeInsets.symmetric(horizontal: 8.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+Expanded(child: Container(
+  height: 90.0,
+  width: 120.0,
+  color: hijau,
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+Icon(FontAwesomeIcons.star,color:merah),
+SizedBox(height: 4.0,),
+Text("Special Menu"),
+
+  ]
+  ),
+),
+
+),
+Container(
+  height: 90.0,
+  width: 120.0,
+  color: hijau,
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+Icon(FontAwesomeIcons.star,color:merah),
+SizedBox(height: 4.0,),
+Text("Special Menu"),
+
+  ]
+  ),
+),
+
+      ],
+    ),
+    );
   }
 }
 class menuitemlist extends StatelessWidget {
