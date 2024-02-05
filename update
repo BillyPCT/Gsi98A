@@ -1,0 +1,17 @@
+
+<?php
+$connection =new mysqli("localhost","root","","authentikasi");
+$title =$_POST['title'];
+$content=$_POST['content'];
+$id=$_POST('id');
+$result =mysqli_query($connection,
+"update catatan set title='$title',content='$content',id='$id'");
+
+if($result){
+    echo json_encode(['message'=>'Data edit sukses']);
+    
+}
+else{
+    echo json_encode(['message'=>'Data edit gagal']);
+}
+?>
